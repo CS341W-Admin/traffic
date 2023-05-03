@@ -4,7 +4,7 @@ const sequence = [
   { color: "red", duration: 5000 },
 ]
 
-let signalSpeed = "fast"
+let signalSpeed = "normal"
 let lightIsActive = false
 
 function changeLightColor(light, color, duration) {
