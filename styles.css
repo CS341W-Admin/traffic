@@ -1,0 +1,67 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+}
+
+#wrapper {
+  max-width: 300px;
+}
+
+#signalSpeed {
+  width: 150px;
+  float: right;
+}
+
+.traffic-light {
+  float: left;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  height: 250px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btnSet {
+  padding: 10px 5px 10px 5px;
+  clear: both;
+}
+
+.light {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.red {
+  background-color: rgb(255, 0, 0);
+}
+
+.darkred {
+  background-color: rgb(129, 1, 1);
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.darkyellow {
+  background-color: rgb(85, 85, 1);
+}
+
+.green {
+  background-color: rgb(1, 255, 1);
+}
+
+.darkgreen {
+  background-color: darkgreen;
+}
