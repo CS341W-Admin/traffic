@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Supply the missing stylesheet and JavaScript links -->
+    <title>Traffic Signal</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Traffic Light Fun</h1>
+      <div class="traffic-light">
+        <div id="red" class="light darkred"></div>
+        <div id="yellow" class="light darkyellow"></div>
+        <div id="green" class="light darkgreen"></div>
+      </div>
+      <form id="signalSpeed">
+        <fieldset>
+          <legend>Signal Speed</legend>
+          <input
+            type="radio"
+            id="normal"
+            name="traffic"
+            value="normal"
+            checked="checked"
+          />
+          <label for="normal">Normal</label><br />
+          <input type="radio" id="fast" name="traffic" value="fast" />
+          <label for="fast">Fast</label>
+        </fieldset>
+      </form>
+      <div class="btnSet">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+      </div>
+    </div>
+  </body>
+</html>
