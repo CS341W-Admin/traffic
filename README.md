@@ -1,9 +1,12 @@
 # 🚦 Traffic Light Fun
 ## Exercise Overview
-The City of Santa Clarita hired a developer to program its traffic lights. Unfortunately, this developer wrote horrible code and then left to work for a startup. You have been brought in as a consultant to fix the faulty program. 
+The City of Santa Clarita hired a developer to program its traffic lights. Unfortunately, this developer wrote terrible code and then left to work for a startup. You have been brought in as a consultant to fix the faulty program. 
+
+### Open Book / Open AI
+CoPilot for VSCode is permitted, as is consulting ChatGPT, Gemini, and other AI tools. You may also consult official documentation (e.g., MDN Web Docs), Stack Overflow, and other internet sources. However, you __may not get outside human assistance__, which includes consulting other people during the exam or using the solution code provided by others who have completed this exercise before. 
 
 ### Exercise Scoring
-This exercise is worth 75 points, weighted as follows:
+This exercise is worth 150 points, weighted as follows:
 - __15% — Adherence to Git/GitHub procedures__, including dev branching and pull request submission
 - __15% — Setup of HTML page__, including proper boilerplate elements and linking of stylesheet and main JS file
 - __40% — JavaScript code__, including proper use of ES6 modules, event handling, async code, object handling, and scope management
@@ -43,13 +46,13 @@ function changeLightColor(light, color, duration) {
   })
 }
 ```
-__The problem is that your main function is not handling the asynchronous events with blocking behavior.__ You could use callbacks, promise chaining, or even better, async/await syntax. Whichever approach you choose, you must ensure that each asynchronous event finishes running before kicking off the next one. For if this recursive loop runs unregulated, the call stack will continue to fill up, causing your program to crash. 
+__The problem is that your main function is not handling the asynchronous events with blocking behavior.__ You could use callbacks, promise chaining, or even better, async/await syntax. Regardless of your approach, you must ensure that each asynchronous event finishes running before the next one kicks off. If this recursive loop runs unregulated, the call stack will continue to overflow, causing your program to crash. 
 
 ### Your Job
 1. Instantiate a local repository and open it in VSCode. 
 2. Analyze the overall program to understand how things are supposed to be working.
 3. Revise and test the code, ensuring that you're meeting the requirements provided below.
-4. Push your development branch back up to GitHub and submit a pull request. 
+4. Push your development branch back to GitHub and submit a pull request. 
 
 ## Requirements
 1. The `index.html` file must properly reference the needed JavaScript and CSS files. 
@@ -88,14 +91,14 @@ Follow the instructions below for [Submitting Your Code via GitHub](#submitting-
 
 1. Make sure you have Git installed on your local machine. You can check by typing this command in the terminal window:
     ```
-    git status
+    git -v
     ```
 2. If the git command is not recognized, then download and install Git for your respective operating system (Mac, Windows, etc.):
     [link to Git download page](https://git-scm.com/downloads)
 
 3. Create a project dev folder called "traffic".
 
-    *NOTE: This is where the code project will be housed. If you're on a Mac, then you should create this folder within the 🔨 Developer folder. If you're on Windows, you might want to create your dev folder somewhere within your Documents directory. You can create this folder by using the File Explorer (Windows) or the Finder (Mac). Alternatively, you can create it from the terminal window (like a boss) as follows.*  
+    *NOTE: This is where the code project will be housed. You can create this folder by using VSCode's built in folder utility, the File Explorer (Windows), or the Finder (Mac). Alternatively, you can create it from the terminal window (like a boss) as follows.*  
     - Run `pwd` to reveal the current folder path. *Move to the desired directory/folder within the terminal shell, as needed.* 
     - Run `mkdir traffic`. *The folder is created.*
     - Run `cd traffic`. *You are now in the new folder.* 
@@ -115,7 +118,7 @@ Follow the instructions below for [Submitting Your Code via GitHub](#submitting-
 
 ## Submitting Your Code via GitHub
 
-1. Confirm that you're on the "dev-traffic" branch. If you're not sure, then use the following commands to a) see what branch you're on, and b) switch to "dev-traffic": 
+1. Confirm that you're on the "dev-traffic" branch. If you're unsure, then use the following commands to a) see what branch you're on, and b) switch to "dev-traffic": 
     ```
     git branch
     git checkout dev-traffic
@@ -136,7 +139,7 @@ Follow the instructions below for [Submitting Your Code via GitHub](#submitting-
     ```
     git push origin dev-traffic
     ```
-5. Log in at [https://github.com](https://github.com) and access this repo. 
+5. Go to [https://github.com](https://github.com) and access this repo. 
 
     *NOTE: Your repo should appear in the left column when you log in. For more direct access, just follow the URL for this repo.* 
     
@@ -148,7 +151,7 @@ Follow the instructions below for [Submitting Your Code via GitHub](#submitting-
     - Click the "Create pull request" button. *The "Open a pull request" input panel appears.*
 7. Perform the following steps to finalize and submit your pull request:
     - Type a brief 1-line description for the request, such as, "Submitting code for Traffic Light Fun."
-    - Use the "Write" textbox to leave any comments or questions about this exercise.
+    - (Optional) Use the "Write" textbox to leave any comments or questions about this exercise.
     - Click the "Submit" button.
 
 **Conclusion:** You have completed the steps necessary to submit your code. 
