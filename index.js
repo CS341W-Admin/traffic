@@ -37,15 +37,10 @@ function runTrafficLightSequence() {
   }
 }
 
-/*   ALTERNATIVE - Could you leverage this pattern instead?
-     for (let obj of sequence) {
-      if (lightIsActive === true) {
-        let { color, duration } = obj
-        const elem = document.querySelector(`#${color}`)
-        duration = signalSpeed === "normal" ? duration : duration / 2
-        // Call the changeLightColor() function using Async/Await syntax
-      }
-    }
+/*   ALTERNATIVES:
+Could you iterate over the sequence array, using each embedded object to get the values for making each function call? 
+Could your code leverage the signalSpeed variable to enforce the right duration (e.g., 50% faster) for that event?
+Could you use the async/await pattern?
  */
 
 const swapClass = (elem, remClass, addClass) => {
