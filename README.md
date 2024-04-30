@@ -22,9 +22,9 @@ The JavaScript is not properly wired up to the HTML. Once you fix that, you'll q
 function runTrafficLightSequence() {
   try {
     changeLightColor(document.querySelector("#green"), sequence[0].color, 5000)
-    changeLightColor(document.querySelector("#yellow"), sequence[1].color, 3000)  //<== The yellow light does not wait for green to finish!
+    changeLightColor(document.querySelector("#yellow"), sequence[1].color, 3000)  //<== Yellow not waiting for green!
     if (lightIsActive === true) {
-      runTrafficLightSequence() // <== This calls the function within itself (recursion), but it's also overflowing the call stack!
+      runTrafficLightSequence() // <== This calls the function within itself (recursion), but the stack overflows!
     } else {
       throw new Error("You clicked the stop button!")
     }
