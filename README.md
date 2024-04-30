@@ -16,21 +16,21 @@ This exercise is worth 150 points, weighted as follows:
 Follow the instructions under [Getting Started](#getting-started--one-time-repo-configuration) to clone this repository and set up a dev branch.
 
 ### Current Situation
-The main function `runTrafficLightSequence()` is called recursively, meaning that its body includes a new call to itself `runTrafficLightSequence()`, such that this function should run in a continuous loop until made to stop. This is not a mistake! It is how the program is designed to work. But read on...
+The JavaScript is not properly wired up to the HTML. Once you fix that, you'll quickly notice a problem with code execution. The `runTrafficLightSequence()` function calls the `changeLightColor()` function successively for each light color, then the `runTrafficLightSequence()` will call itself (recursion) so that the cycle repeats -- over and over again. Unfortunately, __non-blocking__ nature of this code and the use of __recursion__ are causing the `changeLightColor()` function to fire without regulation. As a result, the call stack is overflowing and the application is failing. 
 
 ```
 function runTrafficLightSequence() {
   try {
     changeLightColor(document.querySelector("#green"), sequence[0].color, 5000)
-    changeLightColor(document.querySelector("#yellow"), sequence[1].color, 3000)    
+    changeLightColor(document.querySelector("#yellow"), sequence[1].color, 3000)  //<== The yellow light is not waiting for the green light to finish!
     if (lightIsActive === true) {
-      runTrafficLightSequence() // <== This runs recursively and DOESN'T WAIT, overflowing the call stack!
+      runTrafficLightSequence() // <== This calls the function within itself (recursion) so that the cycle will repeat itself--but it's overflowing the call stack!
     } else {
       throw new Error("You clicked the stop button!")
     }
  } catch(err) { ...
 ```
-The `changeLightColor()` function returns a Promise that leverages the `setTimeout()` Web API to give each light its active duration (i.e., how long it remains lit). This function needs to be called three times (once for each light color) to complete a full sequence.
+The `changeLightColor()` function institutes a `setTimeout()` delay before changing a light to its on/off value (by leveraging a CSS class name). This function is __promise-based__, meaning it eventually gets "settled" with either a `resolve()` or `reject()` value. You will call this function three times (once for each light color) to complete one full traffic light sequence. The sequence should continue repeating so long as the `lightIsActive` variable equals Boolean `true`.
 ```
 function changeLightColor(light, color, duration) {
   return new Promise((resolve, reject) => {
@@ -46,11 +46,11 @@ function changeLightColor(light, color, duration) {
   })
 }
 ```
-__The problem is that your main function is not handling the asynchronous events with blocking behavior.__ You could use callbacks, promise chaining, or even better, async/await syntax. Regardless of your approach, you must ensure that each asynchronous event finishes running before the next one kicks off. If this recursive loop runs unregulated, the call stack will continue to overflow, causing your program to crash. 
+__The problem is that `runTrafficLightSequence()` is not handling this asynchronous event with blocking behavior.__ You could fix that by using callbacks, promise chaining, or even better, async/await syntax. Regardless of your approach, you must ensure that each asynchronous event finishes running before the next one kicks off.
 
 ### Your Job
 1. Instantiate a local repository and open it in VSCode. 
-2. Analyze the overall program to understand how things are supposed to be working.
+2. Analyze the overall program and read the "Requirements" section below to understand how things are supposed to be working.
 3. Revise and test the code, ensuring that you're meeting the requirements provided below.
 4. Push your development branch back to GitHub and submit a pull request. 
 
