@@ -22,9 +22,9 @@ The JavaScript is not properly wired up to the HTML. Once you fix that, you'll q
 function runTrafficLightSequence() {
   try {
     changeLightColor(document.querySelector("#green"), sequence[0].color, 5000)
-    changeLightColor(document.querySelector("#yellow"), sequence[1].color, 3000)  //<== The yellow light is not waiting for the green light to finish!
+    changeLightColor(document.querySelector("#yellow"), sequence[1].color, 3000)  //<== The yellow light does not wait for green to finish!
     if (lightIsActive === true) {
-      runTrafficLightSequence() // <== This calls the function within itself (recursion) so that the cycle will repeat itself--but it's overflowing the call stack!
+      runTrafficLightSequence() // <== This calls the function within itself (recursion), but it's also overflowing the call stack!
     } else {
       throw new Error("You clicked the stop button!")
     }
@@ -46,7 +46,16 @@ function changeLightColor(light, color, duration) {
   })
 }
 ```
-__The problem is that `runTrafficLightSequence()` is not handling this asynchronous event with blocking behavior.__ You could fix that by using callbacks, promise chaining, or even better, async/await syntax. Regardless of your approach, you must ensure that each asynchronous event finishes running before the next one kicks off.
+__The problem, again, is that `runTrafficLightSequence()` is not handling this asynchronous event with blocking behavior.__ You could fix that by using callbacks, promise chaining, or even better, async/await syntax. Regardless of your approach, you must ensure that each call to the asynchronous function finishes running before the next one kicks off.
+
+NOTE: An experienced programmer might opt to iterate over this `sequence` array instead of writing out successive calls to `changeLightColor()`. This is only a suggestion, not a requirement. 
+```
+const sequence = [
+  { color: "green", duration: 5000 },
+  { color: "yellow", duration: 2500 },
+  { color: "red", duration: 5000 },
+]
+```
 
 ### Your Job
 1. Instantiate a local repository and open it in VSCode. 
