@@ -16,7 +16,7 @@ This exercise is worth 150 points, weighted as follows:
 Follow the instructions under [Getting Started](#getting-started--one-time-repo-configuration) to clone this repository and set up a dev branch.
 
 ### Current Situation
-The JavaScript is not properly wired up to the HTML. Once you fix that, you'll quickly notice a problem with code execution. The `runTrafficLightSequence()` function calls the `changeLightColor()` function successively for each light color, then the `runTrafficLightSequence()` will call itself (recursion) so that the cycle repeats -- over and over again. Unfortunately, the __non-blocking__ nature of this code and the use of __recursion__ are causing the `changeLightColor()` function to fire without regulation. As a result, the call stack is overflowing and the application is failing. 
+The JavaScript is not properly wired up to the HTML. Once you fix that, you'll quickly notice a problem with code execution. The `runTrafficLightSequence()` function calls the `changeLightColor()` function successively for each light color, then the `runTrafficLightSequence()` will call itself (recursion) so that the cycle repeats -- over and over again. Unfortunately, the __non-blocking__ nature of this code and the use of __recursion__ are causing the `changeLightColor()` function to fire without regulation. The call stack is overflowing and the application is failing. 
 
 ```
 function runTrafficLightSequence() {
