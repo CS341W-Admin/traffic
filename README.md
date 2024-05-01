@@ -48,13 +48,23 @@ function changeLightColor(light, color, duration) {
 ```
 __The problem, again, is that `runTrafficLightSequence()` is not handling this asynchronous event with blocking behavior.__ You could fix that by using callbacks, promise chaining, or even better, async/await syntax. Regardless of your approach, you must ensure that each call to the asynchronous function finishes running before the next one kicks off.
 
-NOTE: An experienced programmer might opt to iterate over this `sequence` array instead of writing out successive calls to `changeLightColor()`. This is only a suggestion, not a requirement. 
+### Using a Loop (Optional)
+When rewriting the `runTrafficLightSequence()` function, you might choose to iterate over the `sequence` array instead of coding out successive calls to `changeLightColor()`. 
 ```
 const sequence = [
   { color: "green", duration: 5000 },
   { color: "yellow", duration: 2500 },
   { color: "red", duration: 5000 },
 ]
+```
+You could also change `sequence` into an Object (instead of an Array). Weigh the pros and cons regarding patterns for iteration.
+```
+// REWRITE OPTION...
+const sequence = {
+  green: { color: "green", duration: 5000 },
+  yellow: { color: "yellow", duration: 2500 },
+  red: { color: "red", duration: 5000 },
+}
 ```
 
 ### Your Job
