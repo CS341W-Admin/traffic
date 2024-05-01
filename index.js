@@ -21,7 +21,7 @@ function changeLightColor(light, color, duration) {
   })
 }
 
-// THIS CODE IS FAULTY! CAN YOU MAKE IT BETTER?
+// THIS CODE IS FAULTY! 
 function runTrafficLightSequence() {
   try {
     changeLightColor(document.querySelector("#green"), sequence[0].color, 5000)
@@ -36,12 +36,6 @@ function runTrafficLightSequence() {
     console.log(err.message || err)
   }
 }
-
-/*   ALTERNATIVES:
-Could you iterate over the sequence array, using each embedded object to get the values for making each function call? 
-Could your code leverage the signalSpeed variable to enforce the right duration (e.g., 50% faster) for that event?
-Could you use the async/await pattern?
- */
 
 const swapClass = (elem, remClass, addClass) => {
   elem.classList.remove(remClass)
