@@ -86,17 +86,10 @@ const sequence = {
 ```
 2. The light sequence must kick off when the user presses the "Start" button.
 3. The light sequence must cease when the user presses the "Stop" button. (Note: It is OK that the active light takes a moment to finish.)
-4. The duration for each light (i.e., how long between active and inactive) must be driven according to instructions in the `sequence` array. _NOTE: The duration should not be 'hard-coded' into your function code; you must look up the values from this array_:
-```
-const sequence = [
-  { color: "green", duration: 5000 },
-  { color: "yellow", duration: 2500 },
-  { color: "red", duration: 5000 },
-]
-```
+4. The duration for each light (i.e., how long between active and inactive states) must be taken from the `duration` property in the `sequence` object. Thus, reference the variable instead of hard coding the milliseconds into the `setTimeout()` call.
 5. The lights must complete the full cycle repeatedly and continuously without overflowing the call stack. 
 6. The duration of each light should become 50% shorter (i.e., twice as fast) when the Signal Speed radio button is set to "fast"; it should return to normal when the "normal" radio button is selected.
-7. The `changeLightColor()` promise-based function must be in __its own .js file__ and accessed by the `index.js` file through ES6-style module export/import.
+7. The `changeLightColor()` promise-based function must be in __its own JavaScript file__ and accessed by the `index.js` file through ES6-style module export/import.
 
 ### Submitting Your Code
 Follow the instructions below for [Submitting Your Code via GitHub](#submitting-your-code-via-github). Upon submittal, the instructor will do the following: 
